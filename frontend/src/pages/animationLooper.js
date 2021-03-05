@@ -47,13 +47,24 @@ const animationLooper = (
     }
 };
 function drawBar(x1 = 0, y1 = 0, x2 = 0, y2 = 0, i, ctx, numBars) {
-    i = (new Date().getTime() * 0.00345) % 255;
-    let j = (new Date().getTime() * 0.00456) % 255;
-    let k = (new Date().getTime() * 0.005095) % 255;
-
+    i = (new Date().getSeconds())
+    let red,green,blue
+    if (i < 20) {
+        red = 255 - i*20
+        green = 0 + i*40
+        blue = 100
+    } else if (i < 40) {
+        red = 0 + i*10
+        green = 102
+        blue = 101
+    } else {
+        red = 37
+        green = 102 - i * 10
+        blue = 101
+    }
     const gradient = ctx.createLinearGradient(x1, y1, x2, y2);
     gradient.addColorStop(0, "rgb(0,0,0)");
-    gradient.addColorStop(1, `rgb(${i},${j},${k})`);
+    gradient.addColorStop(1, `rgb(${red},${green},${blue})`);
     ctx.fillStyle = gradient;
     let lineColor = gradient;
     ctx.strokeStyle = lineColor;

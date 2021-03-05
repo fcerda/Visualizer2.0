@@ -4,13 +4,7 @@ import { Button, Page } from "../components/common";
 import animationLooper from "./animationLooper";
 import Sliders from "./Sliders";
 
-const StyledDiv = styled.div`
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-`;
+
 let rafId;
 let audio;
 let audioContext;
@@ -93,7 +87,7 @@ const Visualizer = () => {
 
     return (
         <Page>
-            <div className="buttonWrapper">
+            <ButtonWrapper>
                 <Sliders
                     titles={["Number of Bars", "Height of Bars"]}
                     settings={{
@@ -147,7 +141,7 @@ const Visualizer = () => {
                     }}>
                     {visualizerType}
                 </button>
-            </div>
+            </ButtonWrapper>
             <StyledDiv>
                 <CanvasElement id="canvas" ref={canvas} />
             </StyledDiv>
@@ -157,7 +151,20 @@ const Visualizer = () => {
 
 export default Visualizer;
 
+const ButtonWrapper = styled.div`
+    display: flex;
+    flex-direction:column;
+    width: 300px;
+`
+const StyledDiv = styled.div`
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+`;
+
 const CanvasElement = styled.canvas`
     width: 100%;
     height: 100%;
-`;
+    `;
