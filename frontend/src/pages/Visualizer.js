@@ -11,7 +11,6 @@ const StyledDiv = styled.div`
     flex-direction: row;
     justify-content: center;
 `;
-
 let rafId;
 let audio;
 let audioContext;
@@ -20,7 +19,6 @@ let analyser;
 let frequency_array;
 const createAudioContext = () => {
     audio = new Audio();
-
     audioContext = new (window.AudioContext || window.webkitAudioContext)();
     source = audioContext.createMediaElementSource(audio);
     analyser = audioContext.createAnalyser();
@@ -48,11 +46,17 @@ const Visualizer = () => {
     }, [numBars, heightVar, visualizerType]);
 
     const getSong = async (song) => {
-        console.log(song);
+        if (audio) {
+            audio.pause()
+            setIsPaused(true);
+        }
         createAudioContext();
         audio.src = song;
         audio.load();
-        // audio.play()
+        
+        if (audio) {
+            togglePlay()
+        }
     };
     const openFullscreen = () => {
         document.getElementById("canvas").requestFullscreen();
@@ -126,7 +130,6 @@ const Visualizer = () => {
                     onChange={(e) => {
                         getSong(e.target.value);
                     }}>
-                    {" "}
                     <option>Choose A Song</option>
                     {songSelect &&
                         songSelect.map((song) => {
