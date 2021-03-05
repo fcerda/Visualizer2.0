@@ -1,11 +1,13 @@
-import './App.css';
+import "./App.css";
+import Homepage from "./pages/Homepage";
+import Visualizer from "./pages/Visualizer";
 
 function App() {
-  return (
-    <div className="App">
-      <h1 style={{textAlign:'center'}}>Visualizer App</h1>
-    </div>
-  );
+    return (
+        <div className="App">
+          <Visualizer/>
+        </div>
+    );
 }
 
 export default App;
