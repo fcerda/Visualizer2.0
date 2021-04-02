@@ -22,7 +22,7 @@ const createAudioContext = () => {
 };
 
 const Visualizer = () => {
-    const [width, height] = [window.innerWidth, window.innerHeight];
+    const [width, height] = [window.innerWidth *0.8, window.innerHeight];
     const [canvas, setCanvas] = useState(createRef());
     const [isPaused, setIsPaused] = useState(true);
     const [songSelect, setSongSelect] = useState([]);
@@ -153,19 +153,21 @@ const Visualizer = () => {
 export default Visualizer;
 
 const ButtonWrapper = styled.div`
-    display: flex;
-    flex-direction:column;
-    width: 300px;
+    display: grid;
+    grid-template-rows: 20% 10% repeat(4, 5%);
+    grid-gap: 20px;
+    padding: 20px 0 0 20px;
+    width: 100%;
 `
 const StyledDiv = styled.div`
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    grid-row: 1;
+    grid-column: 2;
 `;
 
 const CanvasElement = styled.canvas`
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
     `;

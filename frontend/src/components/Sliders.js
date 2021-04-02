@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const SlidersDiv = styled.div`
-    color: white;
+    color: black;
     width: 100%;
     display: grid;
-    grid-template-columns: 10% auto; /* Width of the outside container */
     grid-template-rows: auto;
     /* The slider itself */
     p {
@@ -49,6 +48,7 @@ const SlidersDiv = styled.div`
 const Sliders = ({ titles, settings }) => {
     const { value1, setValue1, value2, setValue2 } = settings
     return <SlidersDiv>
+        <div>
         <p>{titles[0]}: {value1}</p>
 
         <input
@@ -60,7 +60,8 @@ const Sliders = ({ titles, settings }) => {
             type="range"
             min="1"
             max="1000"
-            value={value1} />
+                value={value1} /></div>
+        <div>
         <p>{titles[1]} {value2}</p>
 
         <input
@@ -73,7 +74,8 @@ const Sliders = ({ titles, settings }) => {
             min="1"
             max="2.5"
             step="0.06"
-            value={value2} />
+                value={value2} />
+            </div>
     </SlidersDiv>;
 };
 export default Sliders
