@@ -71,8 +71,8 @@ const Sliders = ({ titles, settings }) => {
             }}
             type="range"
             min="1"
-            max="10"
-            step="0.25"
+            max="2.5"
+            step="0.06"
             value={value2} />
     </SlidersDiv>;
 };

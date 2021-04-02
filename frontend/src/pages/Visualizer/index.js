@@ -1,8 +1,8 @@
 import React, { createRef, useState, useLayoutEffect, useEffect } from "react";
 import styled from "styled-components";
-import { Button, Page } from "../components/common";
+import { Button, Page } from "../../components/common";
 import animationLooper from "./animationLooper";
-import Sliders from "./Sliders";
+import Sliders from "../../components/Sliders";
 
 
 let rafId;
@@ -81,6 +81,7 @@ const Visualizer = () => {
             center_y,
             frequency_array
         );
+        // analyser.getByteFrequencyData(frequency_array)
         analyser.getByteTimeDomainData(frequency_array);
         rafId = requestAnimationFrame(tick);
     }
